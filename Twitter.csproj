@@ -83,7 +83,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties PublishPath="C:\Users\gaona\documents\visual studio 2017\Projects\Twitter" PublishMethod="LocalFile" />
+      <UserProperties PublishServer="http://192.168.43.3:8088/" PublishMethod="ConstellationServer" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

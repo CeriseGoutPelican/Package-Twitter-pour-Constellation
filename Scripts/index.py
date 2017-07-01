@@ -1,20 +1,22 @@
 ﻿import Constellation
-import twitter_lib as Tw
 import json
 import time
+import twitter_lib as Tw
 
 def OnStart():
 
+    Constellation.WriteInfo("Démarrage du packet Twitter...")
+
     # Récupération des informations de configuration (clé Twitter)
-    if Constellation.GetSetting("twitter_access_token_key") <> None:
+    if Constellation.GetSetting("twitter_access_token_key") != None:
         Constellation.WriteInfo("Clés de configurations récupérées : (%s ; %s)" % (Constellation.GetSetting("twitter_access_token_key"), Constellation.GetSetting("twitter_access_token_secret")))
     else:
         #Constellation.RequestSettings()
-        Constellation.WriteError("Problèm lors de la configuration du paquet")
+        Constellation.WriteError("Problème lors de la configuration du paquet")
 
-    while(True):
+    while(Constellation.IsRunning):
         # Informations basiques liées à un compte Twitter :
-        basicInformations   = Tw.basicInformations(Constellation.GetSetting("twitter_access_token_key"), Constellation.GetSetting("twitter_access_token_secret"))
+        basicInformations   = Tw.basicInformations(Constellation.GetSetting("consumer_key"), Constellation.GetSetting("twitter_access_token_key"), Constellation.GetSetting("twitter_access_token_key"), Constellation.GetSetting("twitter_access_token_secret"))
 
         # Vérification de la connexion au serveur Twitter
         try:
@@ -24,9 +26,9 @@ def OnStart():
         else:
             # Push des données
             Constellation.WriteInfo("Connexion au serveur Twitter : récupération des informations de @%s terminée !" % basicInformations.screen_name)
-            Constellation.PushStateObject(basicInformations.screen_name, basicInformations.AsDict(), lifetime = 30)
+            Constellation.PushStateObject(basicInformations.screen_name, basicInformations.AsDict(), lifetime = 600)
 
-        time.sleep(30)
+        time.sleep(600)
 
     pass
 

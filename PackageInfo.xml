@@ -13,6 +13,8 @@
     </Platforms>
   </Compatibility>
   <Settings>
+    <Setting name="consumer_key" type="String" isRequired="true" />
+    <Setting name="consumer_secret" type="String" isRequired="true" />
     <Setting name="twitter_access_token_key" type="String" isRequired="true" />
     <Setting name="twitter_access_token_secret" type="String" isRequired="true" />
   </Settings>

@@ -1,5 +1,4 @@
-﻿import Constellation
-import twitter
+﻿import twitter
 
 """ FONCTION : basicInformations
     ============================
@@ -12,13 +11,12 @@ import twitter
 
     PARAMETRES :
     ============
+    consumer_key : clef publique de l'application
+    consumer_secret : clef privée de l'application
     access_token_key : jeu de clefs associé à un compte Twitter via oAuth
     access_token_secret : jeu de clefs associé à un compte Twitter via oAuth
 """
-def basicInformations(atk, ats):
-    api = twitter.Api(consumer_key        = 'ygOLcfUomXDvSUfpinYvXg4Zz',                
-                      consumer_secret     = 'OsOHpzzZTNIbzztnr1nmltmx2mg1iVcFi4eygNEpcEWB2lCEtv', 
-                      access_token_key    = atk, 
-                      access_token_secret = ats) 
+def basicInformations(ck, cs, atk, ats):
+    api = twitter.Api(consumer_key = ck, consumer_secret = cs, access_token_key = atk, access_token_secret = ats) 
 
     return api.VerifyCredentials()
