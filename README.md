@@ -11,7 +11,7 @@ Installation de python 2.7 : https://developer.myconstellation.io/getting-starte
 
 Il est ensuite nécessaire d’installation la bibliothèque python-twitter (https://github.com/bear/python-twitter) à l’aide de pip :
 
-`$ pip install python-twitter`
+`$ sudo pip2 install python-twitter`
 
 ### Création de clés pour l'API Twitter
 Le paquet demande des clés d'authentification de l'API Twitter pour fonctionner qu’il est possible de facilement récupérer sur le site suivant : https://apps.twitter.com/ 
